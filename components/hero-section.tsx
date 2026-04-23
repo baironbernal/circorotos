@@ -48,7 +48,7 @@ export function HeroSection() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
       {/* Centered content */}
-      <div className="relative z-10 mx-auto max-w-[860px] px-6 lg:px-10 text-center">
+      <div className="relative z-10 lg:mt-20 mx-auto max-w-[860px] px-6 lg:px-10 text-center pt-20 lg:pt-0">
         <motion.h1
           className="font-serif leading-[1.06] tracking-wide mb-8"
           variants={fadeUp} initial="hidden" animate="show" custom={1}
