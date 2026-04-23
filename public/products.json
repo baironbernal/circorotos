@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Diabolo Grande Pro",
+    "price": "$ 89.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "Diabolo-Grande-Pro-2.webp"
+  },
+  {
+    "name": "Rola Bola Equilibrismo",
+    "price": "$ 185.000",
+    "category": "Equilibrismo , Todos los productos",
+    "image": "Rola-Bola-4.webp"
+  },
+  {
+    "name": "Alma de Clava",
+    "price": "$ 12.000",
+    "category": "Malabarismo , Repuestos de malabarismo , Todos los productos",
+    "image": "alma-de-clava-300x300.webp"
+  },
+  {
+    "name": "Aro de Color 35cm",
+    "price": "$ 28.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "aro-color-35cm-cu-300x300.webp"
+  },
+  {
+    "name": "Aro de Color 45cm",
+    "price": "$ 34.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "aro-color-45cm-cu-1-300x300.webp"
+  },
+  {
+    "name": "Bastones de Fuego Par",
+    "price": "$ 95.000",
+    "category": "Malabarismo , Malabarismo con fuego , Todos los productos",
+    "image": "bastones-de-fuego-par-300x300.webp"
+  },
+  {
+    "name": "Cadenas de Fuego Par Kevlar",
+    "price": "$ 120.000",
+    "category": "Malabarismo , Malabarismo con fuego , Todos los productos",
+    "image": "cadenas-de-fuego-par-kevlar-300x300.webp"
+  },
+  {
+    "name": "Cajas de Malabarismo Trío",
+    "price": "$ 45.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "cajas-de-malabarismo-trio-300x300.webp"
+  },
+  {
+    "name": "Clava Piruet Mango Plateado",
+    "price": "$ 65.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "clava-piruet-mango-plateado-cu.webp"
+  },
+  {
+    "name": "Diabolo Mediano Eco Goma",
+    "price": "$ 55.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "diabolo-mediano-eco-goma-baquetas-de-fibra-de-vidrio-300x300.webp"
+  },
+  {
+    "name": "Diabolo Mediano Plástico",
+    "price": "$ 38.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "diabolo-mediano-plastico-300x300.webp"
+  },
+  {
+    "name": "Diabolo Mediano Pro",
+    "price": "$ 72.000",
+    "category": "Malabarismo , Todos los productos",
+    "image": "diabolo-mediano-pro-baqueta-fibra-de-vidrio.webp"
+  },
+  {
+    "name": "Golo de Fuego con Baquetas",
+    "price": "$ 110.000",
+    "category": "Malabarismo , Malabarismo con fuego , Todos los productos",
+    "image": "golo-de-fuego-baquetas-de-silicona-madera-300x300.webp"
+  },
+  {
+    "name": "Pelota Contacto Goma 100mm",
+    "price": "$ 42.500",
+    "category": "Malabarismo , Pelota de contacto , Todos los productos",
+    "image": "pelota-contacto-goma-100mm-600x600.webp"
+  },
+  {
+    "name": "Tela 20M Acrobática para Circo y Yoga",
+    "price": "$ 200.000",
+    "category": "Acrobacia aérea , Todos los productos",
+    "image": "tela-20-m-acrobatica-para-circo-y-yogaa-1-600x600.webp"
+  },
+  {
+    "name": "Vara de Fuego",
+    "price": "$ 149.000",
+    "category": "Malabarismo , Malabarismo con fuego , Todos los productos",
+    "image": "vara-fuego-600x600.webp"
+  }
+]

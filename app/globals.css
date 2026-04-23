@@ -1,0 +1,342 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════
+   CIRCUS EXTREME – Night Circus Design System
+   Background: deep purple/indigo
+   Titles:     warm gold/yellow
+   Body:       white / light gray
+   Cards:      purple glass
+═══════════════════════════════════════════════ */
+
+:root {
+  /* Base */
+  --background:           oklch(0.08 0.07 292);   /* #0A0318 deep purple */
+  --foreground:           oklch(0.97 0.01 80);    /* #F8F5EE near white  */
+
+  /* Cards / Surfaces */
+  --card:                 oklch(0.12 0.08 292);   /* #150730 dark purple */
+  --card-foreground:      oklch(0.97 0.01 80);
+
+  --popover:              oklch(0.12 0.08 292);
+  --popover-foreground:   oklch(0.97 0.01 80);
+
+  /* Gold — primary CTA, headings accent */
+  --primary:              oklch(0.87 0.19 87);    /* #F5C842 bright gold */
+  --primary-foreground:   oklch(0.08 0.07 292);
+
+  /* Lighter gold for hover */
+  --secondary:            oklch(0.92 0.18 87);    /* #FFD966 light gold  */
+  --secondary-foreground: oklch(0.08 0.07 292);
+
+  /* Purple muted for labels, borders */
+  --muted:                oklch(0.18 0.07 292);
+  --muted-foreground:     oklch(0.60 0.05 292);
+
+  /* Vivid purple for glows */
+  --accent:               oklch(0.44 0.22 298);   /* #5B21B6 vivid purple */
+  --accent-foreground:    oklch(0.97 0.01 80);
+
+  --destructive:          oklch(0.58 0.24 27);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border:               oklch(0.22 0.07 292);
+  --input:                oklch(0.15 0.07 292);
+  --ring:                 oklch(0.87 0.19 87);
+
+  --radius: 0.75rem;
+
+  /* ── Raw hex equivalents for rgba() usage ── */
+  --gold-rgb:   245, 200, 66;
+  --purple-rgb: 91, 33, 182;
+  --bg-rgb:     10, 3, 24;
+}
+
+@theme inline {
+  --font-sans:   var(--font-body);
+  --font-serif:  var(--font-display);
+  --font-mono:   'Geist Mono', monospace;
+
+  --color-background:             var(--background);
+  --color-foreground:             var(--foreground);
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-accent:                 var(--accent);
+  --color-accent-foreground:      var(--accent-foreground);
+  --color-destructive:            var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border:                 var(--border);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 6px);
+}
+
+/* ══════════════════════════════
+   BASE
+══════════════════════════════ */
+@layer base {
+  * { @apply border-border outline-ring/50; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0318;
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -5%,
+        rgba(91, 33, 182, 0.55) 0%,
+        rgba(45, 12, 110, 0.25) 45%,
+        transparent 70%),
+      radial-gradient(ellipse 60% 40% at 85% 80%,
+        rgba(60, 10, 130, 0.3) 0%,
+        transparent 60%),
+      radial-gradient(ellipse 50% 35% at 15% 60%,
+        rgba(70, 20, 150, 0.2) 0%,
+        transparent 55%);
+    color: var(--foreground);
+    @apply font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), serif;
+  }
+}
+
+/* ══════════════════════════════
+   KEYFRAMES
+══════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.70; transform: scale(1.1); }
+}
+@keyframes goldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50%       { opacity: 0.9;  transform: scale(1.2); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(245, 200, 66, 0.2); }
+  50%       { border-color: rgba(245, 200, 66, 0.6); }
+}
+
+/* ══════════════════════════════
+   ANIMATION UTILITIES
+══════════════════════════════ */
+.animate-fade-in-up    { animation: fadeInUp    0.75s ease-out both; }
+.animate-fade-in-left  { animation: fadeInLeft  0.75s ease-out both; }
+.animate-fade-in-right { animation: fadeInRight 0.75s ease-out both; }
+.animate-glow-pulse    { animation: glowPulse   4s ease-in-out infinite; }
+.animate-float         { animation: floatY      5s ease-in-out infinite; }
+.animate-twinkle       { animation: twinkle     3s ease-in-out infinite; }
+.animate-border-glow   { animation: borderGlow  3s ease-in-out infinite; }
+
+/* ══════════════════════════════
+   GOLD SHIMMER TEXT
+══════════════════════════════ */
+.text-gold {
+  color: #F5C842;
+}
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C9900A 0%,
+    #F5C842 30%,
+    #FFF1A0 50%,
+    #F5C842 70%,
+    #C9900A 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s linear infinite;
+}
+
+/* ══════════════════════════════
+   GLASSMORPHISM CARD
+══════════════════════════════ */
+.card-glass {
+  background: rgba(28, 8, 70, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+.card-glass:hover {
+  border-color: rgba(245, 200, 66, 0.28);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(245, 200, 66, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-5px);
+}
+
+/* ══════════════════════════════
+   STARFIELD BACKGROUND
+══════════════════════════════ */
+.bg-stars {
+  background-image:
+    radial-gradient(1px   1px   at  8% 12%, rgba(255,255,255,0.80) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 22% 35%, rgba(255,255,220,0.65) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 37%  6%, rgba(255,255,255,0.70) 0%, transparent 100%),
+    radial-gradient(2px   2px   at 48% 55%, rgba(245,200,66, 0.55) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 58% 22%, rgba(255,255,255,0.60) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 78%, rgba(255,255,220,0.50) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 82%  9%, rgba(255,255,255,0.75) 0%, transparent 100%),
+    radial-gradient(2px   2px   at 91% 48%, rgba(245,200,66, 0.45) 0%, transparent 100%),
+    radial-gradient(1px   1px   at  4% 71%, rgba(255,255,255,0.55) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 15% 88%, rgba(255,255,220,0.45) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 29% 64%, rgba(255,255,255,0.50) 0%, transparent 100%),
+    radial-gradient(2px   2px   at 44% 92%, rgba(245,200,66, 0.40) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 63%  3%, rgba(255,255,255,0.65) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 77% 42%, rgba(255,255,255,0.50) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 86%, rgba(255,255,220,0.55) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 95% 18%, rgba(255,255,255,0.60) 0%, transparent 100%),
+    radial-gradient(2px   2px   at 33% 48%, rgba(245,200,66, 0.35) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 55% 72%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 73% 15%, rgba(255,255,220,0.60) 0%, transparent 100%),
+    radial-gradient(1px   1px   at  2% 45%, rgba(255,255,255,0.40) 0%, transparent 100%);
+}
+
+/* ══════════════════════════════
+   GOLD BUTTONS
+══════════════════════════════ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #D4940A 0%, #F5C842 50%, #FFD966 100%);
+  color: #0A0318;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  box-shadow:
+    0 4px 20px rgba(245, 200, 66, 0.45),
+    0 2px 8px  rgba(0, 0, 0, 0.4);
+}
+.btn-gold:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.1);
+  box-shadow:
+    0 8px 32px rgba(245, 200, 66, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.btn-gold:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #F5C842;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(245, 200, 66, 0.55);
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+.btn-outline-gold:hover {
+  background: rgba(245, 200, 66, 0.1);
+  border-color: #F5C842;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(245, 200, 66, 0.25);
+}
+
+/* ══════════════════════════════
+   SECTION DIVIDERS / ACCENTS
+══════════════════════════════ */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(245,200,66,0.45) 30%, rgba(245,200,66,0.70) 50%, rgba(245,200,66,0.45) 70%, transparent 100%);
+}
+
+.glow-top-purple {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(91, 33, 182, 0.45) 0%,
+    transparent 65%
+  );
+}
+
+.section-padding {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+/* ══════════════════════════════
+   LABEL BADGE
+══════════════════════════════ */
+.label-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1.125rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 200, 66, 0.35);
+  background: rgba(245, 200, 66, 0.08);
+  color: #F5C842;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════
+   PURPLE GLOW ORBS (background)
+══════════════════════════════ */
+.orb-purple {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(91, 33, 182, 0.35);
+  filter: blur(80px);
+  pointer-events: none;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+.orb-gold {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(245, 200, 66, 0.12);
+  filter: blur(70px);
+  pointer-events: none;
+  animation: glowPulse 5s ease-in-out infinite;
+}
